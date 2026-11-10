@@ -1,0 +1,70 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "KotobaBeat",
+  "version": "0.1.0",
+  "identifier": "com.local.kotobabeat",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://127.0.0.1:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "security": {
+      "csp": "default-src 'self'; img-src 'self' asset: data: blob: https://*.music.126.net https://y.gtimg.cn; style-src 'self' 'unsafe-inline'; connect-src ipc: http://ipc.localhost"
+    },
+    "windows": [
+      {
+        "label": "main",
+        "title": "KotobaBeat",
+        "width": 1280,
+        "height": 800,
+        "minWidth": 1080,
+        "minHeight": 680,
+        "center": true,
+        "decorations": false,
+        "resizable": true,
+        "transparent": false
+      },
+      {
+        "label": "mini",
+        "title": "KotobaBeat Mini",
+        "url": "index.html?window=mini",
+        "width": 560,
+        "height": 190,
+        "minWidth": 420,
+        "minHeight": 170,
+        "visible": false,
+        "decorations": false,
+        "resizable": true,
+        "alwaysOnTop": true,
+        "skipTaskbar": true,
+        "transparent": false
+      }
+    ]
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["nsis"],
+    "publisher": "KotobaBeat",
+    "category": "Music",
+    "shortDescription": "Japanese lyrics translation and grammar companion",
+    "longDescription": "Displays synchronized Japanese lyrics with Chinese translation and N4-N2 grammar notes.",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.ico"
+    ],
+    "windows": {
+      "webviewInstallMode": {
+        "type": "downloadBootstrapper",
+        "silent": true
+      },
+      "nsis": {
+        "installMode": "currentUser",
+        "displayLanguageSelector": false
+      }
+    }
+  }
+}
